@@ -67,3 +67,14 @@ Multiple orders
 Within 5 minutes 
 High amount
 Customer Churn Prediction Logic - Find customers inactive for last 90 days.
+
+
+
+
+
+Product Affinity Analysis - Find products frequently bought together.
+Peak Sales Hour Analysis - Find which hour receives maximum orders.
+Inventory Risk Detection - Find products that may go out of stock soon.
+Second Highest Revenue Customer Per State 
+Consecutive Purchase Days(Lead and Lag)
+Find Revenue Spike Detection –( sales amt > average sales)
