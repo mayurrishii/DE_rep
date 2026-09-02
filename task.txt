@@ -1,0 +1,69 @@
+                                                      PYSPARK PRACTICE 
+The company has the following datasets:
+Customers 
+Orders 
+Products 
+
+Tables
+Customers Table
+Column
+customer_id
+customer_name
+gender
+age
+city
+state
+signup_date
+membership_type
+credit_score
+
+Products Table
+Column
+product_id
+product_name
+category
+brand
+price
+stock_quantity
+
+Orders Table
+Column
+order_id
+customer_id
+product_id
+order_date
+ship_date
+quantity
+unit_price
+discount_percentage
+payment_mode
+order_status
+sales_amount
+
+ANALYSIS NEEDED.
+Top Revenue Generating Customers - Find top 10 customers contributing highest revenue.
+Monthly Revenue Trend - Find month-wise revenue trend. (use DATE_FORMAT function to choose YYYY-MM) 
+Running Total Revenue - Finance team wants cumulative revenue.
+Previous Order Analysis - Compare customer current purchase with previous purchase.(use LAG )
+ Next Purchase Prediction using LEAD - Predict next customer purchase amount.
+Customer Retention Analysis - Find customers who ordered in consecutive months.
+Highest Selling Product Per Category - Find top-selling product in each category.
+Average Shipping Delay - Logistics team wants average delivery delay.( find AVG and DATEDIFF ).
+Customers With No Orders - Marketing team wants inactive customers.
+Rank Customers Based on Revenue- Basically rank customer who generates high revenue.
+Detect Revenue Drop - Find customers whose sales reduced compared to previous purchase.(use LAG and later filter curr sales < prev sales)
+
+
+
+
+Day-wise Revenue Analysis - Find which weekday generates highest revenue.(use DAYNAME to get the name)
+Moving Average Sales - Calculate 7-day moving average.
+Revenue Contribution % - Find each customer's contribution percentage.( ROUND 2)
+ Detect Fraudulent Orders – 
+Scenario
+A fraud team suspects:
+Same customer 
+Multiple orders 
+Within 5 minutes 
+High amount
+Customer Churn Prediction Logic - Find customers inactive for last 90 days.
