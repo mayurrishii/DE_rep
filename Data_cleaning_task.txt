@@ -1,0 +1,96 @@
+PySpark Data Transformation – Student Practice
+Part 1 – DataFrame Creation & Inspection
+
+Q1. Read the CSV file into a PySpark DataFrame with the header and appropriate schema inference.
+
+Q2. Display the first 10 records.
+
+Q3. Display the complete schema of the DataFrame.
+
+Q4. Find the number of records in the DataFrame.
+
+Q5. Generate descriptive statistics for all numerical columns.
+
+Q6. Display only the category, region, and sales columns.
+
+Part 2 – Select, Rename & Cast
+
+Q7. Select only category, value, and sales from the DataFrame.
+
+Q8. Rename the sales column to total_sales.
+
+Q9. Convert the value column to DoubleType.
+
+Q10. Convert the date column from string to a proper DateType column.
+
+Q11. Create a new DataFrame containing only category, region, value, and sales.
+
+Part 3 – Filtering
+
+Q12. Find all records where value is greater than 50.
+
+Q13. Find all records belonging to the North region.
+
+Q14. Find records belonging to either the North or South regions.
+
+Q15. Find records where sales is greater than 500.
+
+Q16. Find records where value is between 30 and 100.
+
+Q17. Find records where the category starts with the letter A.
+
+Q18. Find records where the region is not North.
+
+Part 4 – Conditional Logic using when() / otherwise()
+
+Q19. Create a new column called value_category.
+
+Classify records as:
+
+Low → value < 30
+Medium → value between 30 and 70
+High → value > 70
+
+Q20. Create a column called sales_category.
+
+Classify:
+
+Low → sales < 300
+Medium → sales between 300 and 1000
+High → sales > 1000
+
+Q21. Create a column called region_type.
+
+Classify:
+
+North/South → Primary
+East/West → Secondary
+Central → Special
+
+Q22. Create a column called sales_status.
+
+sales is NULL → Missing
+sales >= 1000 → High Sales
+otherwise → Normal Sales
+Part 5 – Column Expressions & Built-in Functions
+
+Q23. Create a column called sales_tax assuming the tax rate is 8%.
+
+Q24. Create a column called net_sales:
+
+net_sales = sales - sales_tax
+
+Q25. Create a column called info by combining category and region using -.
+
+Example:
+
+A-North
+B-South
+
+Q26. Extract the year from the date column and create a column called year.
+
+Q27. Extract the month from the date column.
+
+Q28. Round sales to 1 decimal place.
+
+Q29. Create a column that contains the absolute difference between value and sales.
