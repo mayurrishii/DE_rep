@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Netflix - AI Movie Recommender</title>
+  <!-- Google Fonts & FontAwesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+  <!-- Glassmorphism Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-left">
+      <div class="brand">
+        <span class="brand-net">NETFLIX</span>
+        <span class="brand-ai">AI</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#" class="active">Home</a>
+        <a href="#recommendations">Recommendations</a>
+        <a href="#">Top Rated</a>
+      </nav>
+    </div>
+
+    <div class="nav-right">
+      <!-- Search Input Container -->
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="searchInput" placeholder="Search a movie (e.g. Avatar, Inception)..." autocomplete="off">
+        <button id="clearSearch" class="clear-btn"><i class="fa-solid fa-xmark"></i></button>
+        
+        <!-- Autocomplete Suggestions Dropdown -->
+        <div id="autocompleteDropdown" class="autocomplete-dropdown hidden"></div>
+      </div>
+
+      <button id="searchBtn" class="btn-search-action">Recommend</button>
+
+      <div class="user-avatar">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="Profile">
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Hero Banner Section -->
+  <section class="hero-section" id="heroBanner">
+    <div class="hero-backdrop-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fa-solid fa-fire"></i> #1 AI Recommendation Engine
+      </div>
+      <h1 class="hero-title" id="heroTitle">Avatar</h1>
+      
+      <div class="hero-meta">
+        <span class="match-score" id="heroMatch">99% Match</span>
+        <span class="meta-year" id="heroYear">2009</span>
+        <span class="meta-rating" id="heroRating"><i class="fa-solid fa-star"></i> 7.2</span>
+        <span class="meta-duration" id="heroRuntime">162 min</span>
+      </div>
+
+      <p class="hero-overview" id="heroOverview">
+        In the 22nd century, a paraplegic Marine is dispatched to the moon Pandora on a unique mission, but becomes torn between following orders and protecting an alien civilization.
+      </p>
+
+      <div class="hero-buttons">
+        <button class="btn btn-play" id="heroPlayBtn">
+          <i class="fa-solid fa-play"></i> Explore Similar
+        </button>
+        <button class="btn btn-info" id="heroInfoBtn">
+          <i class="fa-solid fa-circle-info"></i> More Info
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recommendations Section -->
+  <main class="main-content">
+    <div class="section-header" id="recommendations">
+      <h2 class="section-title">
+        <span id="sectionTitleText">Top AI Recommendations</span>
+        <span class="badge-count" id="recCountBadge">10 Movies</span>
+      </h2>
+      <p class="section-subtitle" id="sectionSubtitleText">Based on content similarity algorithm & cosine distance</p>
+    </div>
+
+    <!-- Loading Skeleton Grid -->
+    <div id="loadingSkeleton" class="movies-grid hidden">
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+    </div>
+
+    <!-- Movie Poster Grid -->
+    <div id="moviesGrid" class="movies-grid">
+      <!-- Dynamic movie cards will be rendered here -->
+    </div>
+  </main>
+
+  <!-- Movie Detail Modal Overlay -->
+  <div id="movieModal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <button class="modal-close" id="modalCloseBtn"><i class="fa-solid fa-xmark"></i></button>
+      
+      <div class="modal-banner" id="modalBanner">
+        <div class="modal-banner-overlay"></div>
+        <div class="modal-title-wrapper">
+          <h2 id="modalTitle">Movie Title</h2>
+          <p id="modalTagline" class="modal-tagline"></p>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-left">
+          <img id="modalPoster" src="" alt="Poster" class="modal-poster">
+        </div>
+        <div class="modal-right">
+          <div class="modal-meta-row">
+            <span class="match-score" id="modalMatch">98% Match</span>
+            <span class="meta-year" id="modalYear">2023</span>
+            <span class="meta-rating" id="modalRating"><i class="fa-solid fa-star"></i> 8.5</span>
+            <span class="meta-duration" id="modalRuntime">120 min</span>
+          </div>
+
+          <div class="modal-genres" id="modalGenres">
+            <!-- Genre tags -->
+          </div>
+
+          <p class="modal-overview-title">Overview</p>
+          <p class="modal-overview" id="modalOverview">Description text...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Powered by Cosine Similarity AI Engine & TMDB API • Netflix UI Clone</p>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
