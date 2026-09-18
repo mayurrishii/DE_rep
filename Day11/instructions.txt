@@ -1,0 +1,62 @@
+========================================================================
+                  KAFKA LOCAL SETUP & STREAMING GUIDE
+========================================================================
+
+This directory contains a complete, automated setup for running Apache 
+Kafka locally on Windows (in KRaft mode, bypassing Docker).
+
+------------------------------------------------------------------------
+QUICK START (Automated Batch Files)
+------------------------------------------------------------------------
+
+1. STEP 1: ONE-TIME SETUP
+   Double-click 'setup_kafka.bat' (or run in CMD: setup_kafka.bat)
+   - Downloads Kafka 3.8.0 automatically if missing.
+   - Patches Windows CLASSPATH issue ("input line too long" bug).
+   - Installs required Python dependencies.
+   - Formats storage for KRaft mode.
+
+2. STEP 2: START KAFKA SERVER (Terminal 1)
+   Double-click 'run_server.bat'
+   - Keeps Kafka broker running locally on port 9092.
+
+3. STEP 3: START CONSUMER (Terminal 2)
+   Double-click 'run_consumer.bat' (or run: python kafka_consumer.py)
+   - Listens for streaming messages on 'test-topic'.
+
+4. STEP 4: START PRODUCER (Terminal 3)
+   Double-click 'run_producer.bat' (or run: python kafka_producer.py)
+   - Type messages and press Enter to stream live data to the consumer.
+
+
+------------------------------------------------------------------------
+MANUAL CLI COMMANDS (Without Batch Files)
+------------------------------------------------------------------------
+
+1. Install Python Dependency:
+   pip install kafka-python-ng
+
+2. Format KRaft Storage (Inside kafka_2.13-3.8.0 directory):
+   .\bin\windows\kafka-storage.bat format -t MkU3OEVEMDk0RDU4NEI1Q --ignore-formatted -c .\config\kraft\server.properties
+
+3. Start Kafka Server:
+   .\bin\windows\kafka-server-start.bat .\config\kraft\server.properties
+
+4. CLI Console Producer & Consumer (Alternative to Python):
+   - Producer:
+     .\bin\windows\kafka-console-producer.bat --bootstrap-server localhost:9092 --topic test-topic
+   - Consumer:
+     .\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic test-topic --from-beginning
+
+
+------------------------------------------------------------------------
+TROUBLESHOOTING
+------------------------------------------------------------------------
+
+- "The input line is too long" error on Windows:
+  The setup_kafka.bat script automatically fixes this. If running manually,
+  ensure kafka-run-class.bat uses wildcard classpaths (%BASE_DIR%\libs\*).
+
+- "Port 9092 already in use":
+  Run this PowerShell command to stop any process holding port 9092:
+  Get-NetTCPConnection -LocalPort 9092 -ErrorAction SilentlyContinue | ForEach-Object { Stop-Process -Id $_.OwningProcess -Force }

@@ -1,0 +1,6 @@
+order_id,customer,restaurant,item,price,city
+101,Alice,Pizza Hut,Pepperoni Pizza,450,Mumbai
+102,Bob,Burger King,Whopper Burger,250,Delhi
+103,Charlie,Dominos,Farmhouse Pizza,500,Mumbai
+104,David,KFC,Zinger Burger,300,Bangalore
+105,Eve,Pizza Hut,Garlic Bread,150,Mumbai
